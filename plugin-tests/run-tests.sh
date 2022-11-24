@@ -18,7 +18,8 @@ export RUST_BACKTRACE=1
 ../test-framework/target/debug/dbt \
     --cargo-workspace $SCRIPT_DIR \
     --debugger gdb \
-    --debugger lldb-12 \
+    --debugger-env "gdb:PYTHONPATH=$SCRIPT_DIR/../gdb-extensions:$PYTHONPATH" \
+    --debugger-prelude "gdb:python import rust_exts;" \
     --cargo-target-directory "$OUTPUT_DIR/target" \
     --output $SCRIPT_DIR/../output \
     --cargo-profile debug \

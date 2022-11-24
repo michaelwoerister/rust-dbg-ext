@@ -1,6 +1,6 @@
 [workspace]
 # FIXME: For some reason Cargo does not support `members = ["*"]` on Windows
-members = ["basics", "ignored_test", "crashdump", "crashdump_import_export"]
+members = ["basics", "ignored_test", "crashdump", "crashdump_import_export", "async_stack_traces"]
 exclude = ["target"]
 
 [profile.dev]
