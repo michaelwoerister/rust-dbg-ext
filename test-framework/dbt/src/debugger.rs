@@ -292,7 +292,7 @@ impl Debugger {
             let output = Command::new(command).arg(version_arg).output()?;
 
             if !output.status.success() {
-                bail!("failed to get debugger version from {}", command.display());
+                bail!("failed to get debugger version from {}.\nstatus:\n{}\nstdout:\n{}\nstderr:\n{}", command.display(), output.status, String::from_utf8_lossy(&output.stdout), String::from_utf8_lossy(&output.stderr));
             }
 
             let stdout = String::from_utf8_lossy(&output.stdout);
